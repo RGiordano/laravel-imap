@@ -1,7 +1,7 @@
 {
     "name": "rgiordano/laravel-imap",
     "type": "library",
-    "description": "Laravel IMAP client (adapted to Lumen)",
+    "description": "Lumen version of Laravel IMAP client",
     "keywords": [
         "webklex",
         "laravel",
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Webklex\\IMAP\\": "src/IMAP"
+            "Rgiordano\\IMAP\\": "src/IMAP"
         }
     },
     "scripts": {
@@ -36,10 +36,10 @@
         },
         "laravel": {
             "providers": [
-                "Webklex\\IMAP\\Providers\\LaravelServiceProvider"
+                "Rgiordano\\IMAP\\Providers\\LaravelServiceProvider"
             ],
             "aliases": {
-                "Client": "Webklex\\IMAP\\Facades\\Client"
+                "Client": "Rgiordano\\IMAP\\Facades\\Client"
             }
         }
     },

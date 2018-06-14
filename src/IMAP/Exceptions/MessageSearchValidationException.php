@@ -10,14 +10,14 @@
 *  -
 */
 
-namespace Webklex\IMAP\Exceptions;
+namespace Rgiordano\IMAP\Exceptions;
 
 use \Exception;
 
 /**
  * Class MessageSearchValidationException
  *
- * @package Webklex\IMAP\Exceptions
+ * @package Rgiordano\IMAP\Exceptions
  */
 class MessageSearchValidationException extends Exception {
 

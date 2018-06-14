@@ -10,7 +10,7 @@
 *  -
 */
 
-namespace Webklex\IMAP\Support;
+namespace Rgiordano\IMAP\Support;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -19,7 +19,7 @@ use Illuminate\Pagination\Paginator;
 /**
  * Class PaginatedCollection
  *
- * @package Webklex\IMAP\Support
+ * @package Rgiordano\IMAP\Support
  */
 class PaginatedCollection extends Collection {
 

@@ -10,18 +10,18 @@
 *  -
 */
 
-namespace Webklex\IMAP;
+namespace Rgiordano\IMAP;
 
-use Webklex\IMAP\Exceptions\ConnectionFailedException;
-use Webklex\IMAP\Exceptions\GetMessagesFailedException;
-use Webklex\IMAP\Exceptions\MessageSearchValidationException;
-use Webklex\IMAP\Support\FolderCollection;
-use Webklex\IMAP\Support\MessageCollection;
+use Rgiordano\IMAP\Exceptions\ConnectionFailedException;
+use Rgiordano\IMAP\Exceptions\GetMessagesFailedException;
+use Rgiordano\IMAP\Exceptions\MessageSearchValidationException;
+use Rgiordano\IMAP\Support\FolderCollection;
+use Rgiordano\IMAP\Support\MessageCollection;
 
 /**
  * Class Client
  *
- * @package Webklex\IMAP
+ * @package Rgiordano\IMAP
  */
 class Client {
 

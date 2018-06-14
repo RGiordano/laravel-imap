@@ -10,14 +10,14 @@
 *  -
 */
 
-namespace Webklex\IMAP;
+namespace Rgiordano\IMAP;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
 
 /**
  * Class Attachment
  *
- * @package Webklex\IMAP
+ * @package Rgiordano\IMAP
  */
 class Attachment {
 

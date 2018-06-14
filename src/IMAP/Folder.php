@@ -10,24 +10,24 @@
 *  -
 */
 
-namespace Webklex\IMAP;
+namespace Rgiordano\IMAP;
 
-use Webklex\IMAP\Exceptions\GetMessagesFailedException;
-use Webklex\IMAP\Exceptions\MessageSearchValidationException;
-use Webklex\IMAP\Support\FolderCollection;
-use Webklex\IMAP\Support\MessageCollection;
+use Rgiordano\IMAP\Exceptions\GetMessagesFailedException;
+use Rgiordano\IMAP\Exceptions\MessageSearchValidationException;
+use Rgiordano\IMAP\Support\FolderCollection;
+use Rgiordano\IMAP\Support\MessageCollection;
 
 /**
  * Class Folder
  *
- * @package Webklex\IMAP
+ * @package Rgiordano\IMAP
  */
 class Folder {
 
     /**
      * Client instance
      *
-     * @var \Webklex\IMAP\Client
+     * @var \Rgiordano\IMAP\Client
      */
     protected $client;
 
@@ -108,7 +108,7 @@ class Folder {
     /**
      * Folder constructor.
      *
-     * @param \Webklex\IMAP\Client $client
+     * @param \Rgiordano\IMAP\Client $client
      *
      * @param object $folder
      */

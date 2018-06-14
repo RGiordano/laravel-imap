@@ -10,14 +10,14 @@
 *  -
 */
 
-namespace Webklex\IMAP\Exceptions;
+namespace Rgiordano\IMAP\Exceptions;
 
 use \Exception;
 
 /**
  * Class ConnectionFailedException
  *
- * @package Webklex\IMAP\Exceptions
+ * @package Rgiordano\IMAP\Exceptions
  */
 class ConnectionFailedException extends Exception {
 

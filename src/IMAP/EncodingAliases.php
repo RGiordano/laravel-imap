@@ -11,12 +11,12 @@
 *  This file attempts to correct this by using a list of aliases and their mappings to supported iconv() encodings
 */
 
-namespace Webklex\IMAP;
+namespace Rgiordano\IMAP;
 
 /**
  * Class EncodingAliases
  *
- * @package Webklex\IMAP
+ * @package Rgiordano\IMAP
  */
 class EncodingAliases {
    

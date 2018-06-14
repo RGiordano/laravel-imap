@@ -10,12 +10,12 @@
 *  -
 */
 
-namespace Webklex\IMAP\Support;
+namespace Rgiordano\IMAP\Support;
 
 /**
  * Class AttachmentCollection
  *
- * @package Webklex\IMAP\Support
+ * @package Rgiordano\IMAP\Support
  */
 class AttachmentCollection extends PaginatedCollection {
 

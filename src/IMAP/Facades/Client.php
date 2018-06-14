@@ -10,15 +10,15 @@
 *  -
 */
 
-namespace Webklex\IMAP\Facades;
+namespace Rgiordano\IMAP\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Webklex\IMAP\ClientManager;
+use Rgiordano\IMAP\ClientManager;
 
 /**
  * Class Client
  *
- * @package Webklex\IMAP\Facades
+ * @package Rgiordano\IMAP\Facades
  */
 class Client extends Facade {
 

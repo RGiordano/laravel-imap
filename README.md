@@ -51,17 +51,17 @@ composer require webklex/laravel-imap
 
     - add the following to the `providers` array:
         ``` php
-        Webklex\IMAP\Providers\LaravelServiceProvider::class,
+        Rgiordano\IMAP\Providers\LaravelServiceProvider::class,
         ```
     - add the following to the `aliases` array: 
         ``` php
-        'Client' => Webklex\IMAP\Facades\Client::class,
+        'Client' => Rgiordano\IMAP\Facades\Client::class,
         ```
 
 4) Run the command below to publish the package config file [config/imap.php](src/config/imap.php):
 
 ``` shell
-php artisan vendor:publish --provider="Webklex\IMAP\Providers\LaravelServiceProvider"
+php artisan vendor:publish --provider="Rgiordano\IMAP\Providers\LaravelServiceProvider"
 ```
 
 ## Configuration
@@ -109,7 +109,7 @@ and will move every message into INBOX.read. Please be aware that this should no
 tested in real live but it gives an impression on how things work.
 
 ``` php
-use Webklex\IMAP\Client;
+use Rgiordano\IMAP\Client;
 
 $oClient = new Client([
     'host'          => 'somehost.com',
@@ -124,18 +124,18 @@ $oClient = new Client([
 $oClient->connect();
 
 //Get all Mailboxes
-/** @var \Webklex\IMAP\Support\FolderCollection $aFolder */
+/** @var \Rgiordano\IMAP\Support\FolderCollection $aFolder */
 $aFolder = $oClient->getFolders();
 
 //Loop through every Mailbox
-/** @var \Webklex\IMAP\Folder $oFolder */
+/** @var \Rgiordano\IMAP\Folder $oFolder */
 foreach($aFolder as $oFolder){
 
     //Get all Messages of the current Mailbox $oFolder
-    /** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+    /** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
     $aMessage = $oFolder->getMessages();
     
-    /** @var \Webklex\IMAP\Message $oMessage */
+    /** @var \Rgiordano\IMAP\Message $oMessage */
     foreach($aMessage as $oMessage){
         echo $oMessage->subject.'<br />';
         echo 'Attachments: '.$oMessage->getAttachments()->count().'<br />';
@@ -151,10 +151,10 @@ foreach($aFolder as $oFolder){
 }
 ```
 
-If you use the Facade [\Webklex\IMAP\Facades\Client::class](src/IMAP/Facades/Client.php) please select an account first:
+If you use the Facade [\Rgiordano\IMAP\Facades\Client::class](src/IMAP/Facades/Client.php) please select an account first:
 
 ``` php
-use Webklex\IMAP\Facades\Client;
+use Rgiordano\IMAP\Facades\Client;
 
 $oClient = Client::account('default');
 $oClient->connect();
@@ -166,26 +166,26 @@ method takes three options: the required (string) $folder_name and two optional 
 seems to be sometimes 32 or 64 (I honestly have no clue what this number does, so feel free to enlighten me and anyone 
 else) and a delimiter which if it isn't set will use the default option configured inside the [config/imap.php](src/config/imap.php) file.
 ``` php
-/** @var \Webklex\IMAP\Client $oClient */
+/** @var \Rgiordano\IMAP\Client $oClient */
 
-/** @var \Webklex\IMAP\Folder $oFolder */
+/** @var \Rgiordano\IMAP\Folder $oFolder */
 $oFolder = $oClient->getFolder('INBOX.name');
 ```
 
 Search for specific emails:
 ``` php
-/** @var \Webklex\IMAP\Folder $oFolder */
+/** @var \Rgiordano\IMAP\Folder $oFolder */
 
 //Get all messages since march 15 2018
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 $aMessage = $oFolder->searchMessages([['SINCE', Carbon::parse('15.03.2018')]]);
 
 //Get all messages containing "hello world"
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 $aMessage = $oFolder->searchMessages([['TEXT', 'hello world']]);
 
 //Get all unseen messages containing "hello world"
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 $aMessage = $oFolder->searchMessages([['UNSEEN'], ['TEXT', 'hello world']]);
 ```
 
@@ -223,7 +223,7 @@ Further information:
      
 Paginate a message collection:
 ``` php
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 
 /** @var \Illuminate\Pagination\LengthAwarePaginator $paginator */
 $paginator = $aMessage->paginate();
@@ -231,51 +231,51 @@ $paginator = $aMessage->paginate();
 
 Get a specific message by uid (Please note that the uid is not unique and can change):
 ``` php
-/** @var \Webklex\IMAP\Folder $oFolder */
+/** @var \Rgiordano\IMAP\Folder $oFolder */
 
-/** @var \Webklex\IMAP\Message $oMessage */
+/** @var \Rgiordano\IMAP\Message $oMessage */
 $oMessage = $oFolder->getMessage($uid = 1);
 ```
 
 Flag or "unflag" a message:
 ``` php
-/** @var \Webklex\IMAP\Message $oMessage */
+/** @var \Rgiordano\IMAP\Message $oMessage */
 $oMessage->setFlag(['Seen', 'Spam']);
 $oMessage->unsetFlag('Spam');
 ```
 
 Save message attachments:
 ``` php
-/** @var \Webklex\IMAP\Message $oMessage */
+/** @var \Rgiordano\IMAP\Message $oMessage */
 
-/** @var \Webklex\IMAP\Support\AttachmentCollection $aAttachment */
+/** @var \Rgiordano\IMAP\Support\AttachmentCollection $aAttachment */
 $aAttachment = $oMessage->getAttachments();
 
 $aAttachment->each(function ($oAttachment) {
-    /** @var \Webklex\IMAP\Attachment $oAttachment */
+    /** @var \Rgiordano\IMAP\Attachment $oAttachment */
     $oAttachment->save();
 });
 ```
 
 Fetch messages without body fetching (decrease load):
 ``` php
-/** @var \Webklex\IMAP\Folder $oFolder */
+/** @var \Rgiordano\IMAP\Folder $oFolder */
 
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 $aMessage = $oFolder->searchMessages([['TEXT', 'Hello world']], null, false);
 
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 $aMessage = $oFolder->getMessages('ALL', null, false);
 ```
 
 Fetch messages without body and attachment fetching (decrease load):
 ``` php
-/** @var \Webklex\IMAP\Folder $oFolder */
+/** @var \Rgiordano\IMAP\Folder $oFolder */
 
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 $aMessage = $oFolder->searchMessages([['TEXT', 'Hello world']], null, false, 'UTF-8', false);
 
-/** @var \Webklex\IMAP\Support\MessageCollection $aMessage */
+/** @var \Rgiordano\IMAP\Support\MessageCollection $aMessage */
 $aMessage = $oFolder->getMessages('ALL', null, false, false);
 ```
 

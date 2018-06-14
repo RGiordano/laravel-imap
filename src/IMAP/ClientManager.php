@@ -10,12 +10,12 @@
 *  -
 */
 
-namespace Webklex\IMAP;
+namespace Rgiordano\IMAP;
 
 /**
  * Class ClientManager
  *
- * @package Webklex\IMAP
+ * @package Rgiordano\IMAP
  */
 class ClientManager {
 

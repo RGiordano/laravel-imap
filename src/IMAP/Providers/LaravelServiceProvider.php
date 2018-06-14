@@ -10,16 +10,16 @@
 *  -
 */
 
-namespace Webklex\IMAP\Providers;
+namespace Rgiordano\IMAP\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Webklex\IMAP\Client;
-use Webklex\IMAP\ClientManager;
+use Rgiordano\IMAP\Client;
+use Rgiordano\IMAP\ClientManager;
 
 /**
  * Class LaravelServiceProvider
  *
- * @package Webklex\IMAP\Providers
+ * @package Rgiordano\IMAP\Providers
  */
 class LaravelServiceProvider extends ServiceProvider {
 

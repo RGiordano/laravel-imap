@@ -10,15 +10,15 @@
 *  -
 */
 
-namespace Webklex\IMAP;
+namespace Rgiordano\IMAP;
 
 use Carbon\Carbon;
-use Webklex\IMAP\Support\AttachmentCollection;
+use Rgiordano\IMAP\Support\AttachmentCollection;
 
 /**
  * Class Message
  *
- * @package Webklex\IMAP
+ * @package Rgiordano\IMAP
  */
 class Message {
 
