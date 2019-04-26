@@ -83,6 +83,7 @@ The following encryption methods are supported:
 - `false` &mdash; Disable encryption 
 - `ssl` &mdash; Use SSL
 - `tls` &mdash; Use TLS
+- `starttls` &mdash; Use STARTTLS
 
 Detailed [config/imap.php](src/config/imap.php) configuration:
  - `default` &mdash; used default account
