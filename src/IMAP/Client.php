@@ -437,6 +437,8 @@ class Client {
         }
         if ($this->encryption == 'ssl') {
             $address .= '/ssl';
+        } else if ($this->encryption == 'starttls') {
+            $address .= '/tls';
         }
         $address .= '}';
 
